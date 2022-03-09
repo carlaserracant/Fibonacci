@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FibonacciTest {
     private Fibonacci fibonacci;
@@ -16,23 +17,30 @@ class FibonacciTest {
     private void finish() { fibonacci = null; }
 
     @Test
-    public void testReturnZeroIfTheNumberIsZero() {
+    public void testComputeReturnZeroIfTheNumberIsZero() {
         int expectedValue = 0;
         int obtainedValue = fibonacci.fibonacci(0);
         assertEquals(expectedValue,obtainedValue);
     }
 
     @Test
-    public void testReturnOneIfTheNumberIsOne() {
+    public void testComputeReturnOneIfTheNumberIsOne() {
         int expectedValue = 1;
         int obtainedValue = fibonacci.fibonacci(1);
         assertEquals(expectedValue,obtainedValue);
     }
 
     @Test
-    public void testReturnTwoIfTheNumberIsThree() {
+    public void testComputeReturnTwoIfTheNumberIsThree() {
         int expectedValue = 2;
         int obtainedValue = fibonacci.fibonacci(3);
+        assertEquals(expectedValue,obtainedValue);
+    }
+
+    @Test
+    public void testComputeShowAnErrorMessageIfTheNumberIsNegative() {
+        int expectedValue = -1;
+        int obtainedValue = fibonacci.fibonacci(-1);
         assertEquals(expectedValue,obtainedValue);
     }
 }
